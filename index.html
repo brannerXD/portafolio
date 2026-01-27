@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Branner Ramírez</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+    <div class="video-bg">
+        <video autoplay muted loop playsinline>
+            <source src="video/loop.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+        </video>
+    </div>
+
+    <main class="card">
+        <div class="blackhole-icon"></div>
+
+        <h1>Branner Ramírez</h1>
+        <p>Portafolio · Desarrollo · Diseño</p>
+        <a href="contact.html" class="btn-ingresar" onclick="guardarClick()">Contacto</a>
+        <a href="portafolio.html" class="btn-ingresar" onclick="guardarClick()">Ingresar</a>
+
+    </main>
+<script>
+    function guardarClick() {
+        localStorage.setItem("playMusic", "yes");
+    }
+</script>
+</body>
+</html>

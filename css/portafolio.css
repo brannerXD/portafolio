@@ -1,0 +1,260 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.video-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
+}
+
+.video-bg video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.45) contrast(1.15) saturate(1.05);
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #f8faff;
+    background: transparent;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 120px;
+    font-size: 2.4rem;
+    letter-spacing: 1.6px;
+    color: #ffffff;
+    text-shadow:
+        0 0 6px rgba(255,255,255,0.35),
+        0 0 18px rgba(180,220,255,0.15);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 100px;
+    font-weight: 400;
+    color: #dfe3ea;
+    opacity: 0.85;
+}
+
+.Despliegue {
+    width: min(900px, 90%);
+    margin: 60px auto;
+    background: rgba(10, 12, 18, 0.55);
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 20px 60px rgba(0,0,0,0.55),
+        inset 0 0 0 1px rgba(255,255,255,0.06);
+    overflow: hidden;
+    transition: 
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.Despliegue:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.7),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+    background: rgba(12, 14, 20, 0.65);
+}
+
+.Despliegue-titulo {
+    padding: 16px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.04);
+    color: #f8faff;
+    letter-spacing: 0.6px;
+    cursor: default;
+    position: relative;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.Despliegue-titulo::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    bottom: 0;
+    width: 42px;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        rgba(200,240,255,0.9),
+        transparent
+    );
+}
+
+.Despliegue-contenido {
+    padding: 16px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    text-align: left;
+    color: #f1f3f7;
+}
+
+th {
+    color: #cfd6df;
+    font-weight: 500;
+}
+
+.Despliegue table tr {
+    transition: background 0.25s ease;
+}
+
+.Despliegue table tr:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+a {
+    color: #f8faff;
+    text-decoration: none;
+    transition: 
+        color 0.25s ease,
+        text-shadow 0.25s ease;
+}
+
+a:hover {
+    color: #ffffff;
+    text-shadow:
+        0 0 6px rgba(200,240,255,0.6);
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #cfd6df;
+    opacity: 0.7;
+}
+
+audio {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+}
+
+@media (max-width: 768px) {
+
+    .video-bg video {
+        width: 200%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.4) contrast(1.1) saturate(1.05);
+    }
+
+    h1 {
+        margin-top: 80px;
+        font-size: 1.7rem;
+        letter-spacing: 1.1px;
+        padding: 0 12px;
+    }
+
+    h2 {
+        margin-bottom: 60px;
+        font-size: 0.95rem;
+        padding: 0 16px;
+    }
+
+    .Despliegue {
+        width: 100%;
+        margin: 32px auto;
+        border-radius: 12px;
+    }
+
+    .Despliegue-titulo {
+        padding: 14px 16px;
+        font-size: 0.9rem;
+    }
+
+    .Despliegue-contenido {
+        padding: 14px;
+    }
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        margin-bottom: 14px;
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    td {
+        padding: 10px 12px;
+        text-align: right;
+        position: relative;
+        font-size: 0.85rem;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 12px;
+        font-size: 0.75rem;
+        color: #cfd6df;
+        opacity: 0.7;
+        text-align: left;
+    }
+
+    a {
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        font-size: 0.8rem;
+        padding: 16px 10px;
+    }
+
+    * {
+        max-width: 100%;
+    }
+}
