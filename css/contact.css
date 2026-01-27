@@ -1,11 +1,10 @@
-/* ───────── RESET ───────── */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ───────── BODY ───────── */
 body {
     height: 100vh;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -17,7 +16,6 @@ body {
     overflow: hidden;
 }
 
-/* ───────── VIDEO FONDO ───────── */
 .video-bg {
     position: fixed;
     inset: 0;
@@ -47,7 +45,11 @@ body {
     );
 }
 
-/* ───────── TARJETA ───────── */
+.video-bg,
+.video-bg video {
+    pointer-events: none;
+}
+
 .contact-card {
     width: min(460px, 90%);
     padding: 48px 36px;
@@ -60,7 +62,6 @@ body {
         inset 0 0 0 1px rgba(255,255,255,0.06);
 }
 
-/* ───────── TEXTO ───────── */
 .contact-card h1 {
     font-size: 2.1rem;
     letter-spacing: 1.2px;
@@ -76,7 +77,6 @@ body {
     margin-bottom: 40px;
 }
 
-/* ───────── ICONOS ───────── */
 .contact-icons {
     display: flex;
     justify-content: center;
@@ -98,7 +98,6 @@ body {
         background 0.3s ease;
 }
 
-/* Imagen del icono */
 .icon-box img {
     width: 32px;
     height: 32px;
@@ -106,7 +105,6 @@ body {
     filter: brightness(1.1);
 }
 
-/* Texto debajo */
 .icon-box span {
     display: block;
     font-size: 0.75rem;
@@ -114,7 +112,6 @@ body {
     opacity: 0.85;
 }
 
-/* Hover */
 .icon-box:hover {
     transform: translateY(-6px);
     background: rgba(255,255,255,0.12);
@@ -179,7 +176,6 @@ body {
         letter-spacing: 0.9px;
     }
 
-    /* Evita scroll lateral */
     * {
         max-width: 100%;
     }
